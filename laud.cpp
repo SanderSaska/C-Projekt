@@ -3,9 +3,9 @@
 using namespace std;
 
 
-Laud::Laud() : m_suurus(3), m_laud(vector<vector<string>>(3, vector<string>(3, m_mangijad[2]))) {}
+Laud::Laud() : m_suurus(3), m_laud(vector<vector<string>>(3, vector<string>(3, "*"))) {}
 
-/*Laud::Laud(int n) : m_suurus(n), m_laud(vector<vector<string>>(n, vector<string>(n, " "))) {}*/
+/*Laud::Laud(int n) : m_suurus(n), m_laud(vector<vector<string>>(n, vector<string>(n, "*"))) {}*/
 
 
 void Laud::print(ostream &os) {
@@ -23,4 +23,8 @@ void Laud::print(ostream &os) {
             os << '\n';
         }
     }
+}
+
+void Laud::sisesta(int i, int j, string kaija) {
+    m_laud[i][j] = kaija;
 }

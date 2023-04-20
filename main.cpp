@@ -4,8 +4,10 @@
 
 using namespace std;
 
+const vector<string> m_mangijad = {"X", "O", "*"};
+
 int main() {
-    Manguvali vali(1);
+    Manguvali vali(2);
     vali.print(cout);
     return 0;
 }

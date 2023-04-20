@@ -8,7 +8,6 @@
 class Laud {
 private:
     int m_suurus;
-    std::vector<std::string> m_mangijad = {"X", "O", "*"};
     std::vector<std::vector<std::string>> m_laud;
 public:
     Laud();
@@ -20,7 +19,8 @@ public:
 
     /// sisesta - Sisestab lauale nupu/käigu
     void sisesta(int i, ///< - rida [i][]
-                 int j ///< - veerg [][j]
+                 int j, ///< - veerg [][j]
+                 std::string kaija ///< - kes kaib
     );
 
     /// kontrolli - Kontrollib, kas antud käiku on võimalik käia

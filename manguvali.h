@@ -13,7 +13,8 @@ public:
     explicit Manguvali(int laudadeArv);
 
     /// sisesta - Sisestab kindlale mängulauale käigu
-    void sisesta(std::string sisestus ///< - kasutaja sisestus
+    void sisesta(std::string sisestus, ///< - kasutaja sisestus
+    std::string kaija ///< - kes kaib
     );
 
     /// print - Väljastab terve mänguvälja (kõik mängulauad, kus mäng pole veel läbi)
