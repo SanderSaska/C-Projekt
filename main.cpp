@@ -1,10 +1,11 @@
 #include <iostream>
 #include "laud.h"
+#include "manguvali.h"
 
 using namespace std;
 
 int main() {
-    Laud test;
-    test.print(cout);
+    Manguvali vali(1);
+    vali.print(cout);
     return 0;
 }

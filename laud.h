@@ -8,13 +8,23 @@
 class Laud {
 private:
     int m_suurus;
-    std::vector<std::string> m_mangijad= {"X", "O", "*"};
+    std::vector<std::string> m_mangijad = {"X", "O", "*"};
     std::vector<std::vector<std::string>> m_laud;
 public:
     Laud();
+
     // hiljem --> explicit Laud(int n) ;
-    /// print - väljastab mängulaua
+    /// print - Väljastab mängulaua
     void print(std::ostream &os ///< - kuhu väljastada
+    );
+
+    /// sisesta - Sisestab lauale nupu/käigu
+    void sisesta(int i, ///< - rida [i][]
+                 int j ///< - veerg [][j]
+    );
+
+    /// kontrolli - Kontrollib, kas antud käiku on võimalik käia
+    void kontrolli(std::string käik ///< - kahemõõtmeline koordinaat
     );
 };
 
