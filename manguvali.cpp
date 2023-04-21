@@ -3,7 +3,7 @@
 
 using namespace std;
 
-
+// Konstruktor
 Manguvali::Manguvali(int laudadeArv) : m_lauad(vector<Laud>(laudadeArv, Laud())), m_laudadeArv(laudadeArv) {}
 
 void Manguvali::sisesta(std::string sisestus, std::string kaija) {
