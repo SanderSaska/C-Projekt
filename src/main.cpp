@@ -43,16 +43,13 @@ int main() {
 
     vali.print(cout);
 
-    //std::string kaija = "mangija";
-
     while (laudade_arv > 0) { //Töötab, kuni lauad saavad otsa.
         std::string käik;
         cout << "Palun sisesta oma käik!" << endl;
         cin >> käik;
-        while (cin.fail() == false && vali.sisesta(käik)==true) { //Kontrollib, kas käigu sisestus on korrektne, kui ei, siis küsib uue sisestuse
-            cout << "Error: palun sisesta oma käik korrektselt!" << endl;
-            cout
-                    << "Palun sisesta käik kujul 'laua number, rea number, veeru number', kuhu soovid järgmise X-i asetada!"
+        while (vali.sisesta(käik) == false) { //Kontrollib, kas käigu sisestus on korrektne, kui ei, siis küsib uue sisestuse
+
+            cout << "Palun sisesta käik kujul 'laua number, rea number, veeru number', kuhu soovid järgmise X-i asetada!"
                     << endl
                     << "Näide: $ 2,3,2 sisestab X-i teisele mängulauale, kolmandasse ritta ning teise veergu.\n"
                     << endl;
@@ -64,21 +61,24 @@ int main() {
         //siin on mängija käik tehtud
         vali.print(cout);
       
+        //cout << kontrolli(/*SIIA ON VAJA SAADA LAUD*/,"AI",3) << endl;
 
         //Kui laud sai surma siis annan teada, alles on laudade_arv - 1 lauda.
 
         //AI teeb oma käigu.
-       // vali.print(cout);
+
+        // vali.print(cout);
 
         //Kui laud sai surma siis annan teada, alles on laudade_arv - i lauda.
 
 
 
     }
-
+    
+    //Kui mäng jõuab siia, siis kontrollin, kelle käik oli viimati ning annan teada, et tema kaotas.
     lopetus();
 
-//Mänguskoor ja uuesti mängimine tuleb lõppversioonis.
+    //Mänguskoor ja uuesti mängimine tuleb lõppversioonis.
 
 
     return 0;

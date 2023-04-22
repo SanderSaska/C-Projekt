@@ -30,10 +30,12 @@ void Laud::print(ostream &os) {
 
 bool Laud::sisesta(int i, int j) {
     if (m_laud[i][j].compare("*") == 0) { // Kas antud koordinaatidel on tühi koht või mitte
-        m_laud[i][j] = m_mangunupud[m_kaija]; // paneb nupu ära
+        m_laud[i][j] = "X"/*m_mangunupud[m_kaija]*/; // paneb nupu ära
         m_kaija = 1 - m_kaija; // vahetab käigukorda
         return true;
-    } else return false;
+    } else {
+        cout << "\nTeie sisestatud koht on laual juba hõivatud!" << endl;
+        return false;}
 }
 
 bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
