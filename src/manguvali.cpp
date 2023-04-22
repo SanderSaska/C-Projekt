@@ -12,15 +12,15 @@ bool Manguvali::sisesta(std::string sisestus) {
     string eraldaja{","};
     auto pos = sisestus.find(eraldaja);
     string osa = sisestus.substr(0, pos);
-    sisestus.erase(0, pos);
+    sisestus.erase(0, pos + eraldaja.size());
     int lauaIdx = stoi(osa) - 1;
 
     pos = sisestus.find(eraldaja);
     osa = sisestus.substr(0, pos);
-    sisestus.erase(0, pos);
+    sisestus.erase(0, pos + eraldaja.size());
     int i = stoi(osa) - 1;
 
-    if (sisestus.find(eraldaja) != 0) {
+    if (sisestus.find(eraldaja) != string::npos) {
         return false;
     } else {
         int j = stoi(sisestus) - 1;
