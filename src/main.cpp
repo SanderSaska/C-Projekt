@@ -43,13 +43,13 @@ int main() {
 
     vali.print(cout);
 
-    while (laudade_arv > 0) { //Töötab, kuni lauad saavad otsa.
+    while (laudade_arv > 0) { //Töötab, kuni lauad saavad otsa. // Vist peaks panema while(true){}, kui onLopp() töötab
         std::string käik;
         cout << "Palun sisesta oma käik!" << endl;
         cin >> käik;
         while (vali.sisesta(käik) == false) { //Kontrollib, kas käigu sisestus on korrektne, kui ei, siis küsib uue sisestuse
 
-            cout << "Palun sisesta käik kujul 'laua number, rea number, veeru number', kuhu soovid järgmise X-i asetada!"
+            cout << "\nPalun sisesta käik kujul 'laua number, rea number, veeru number', kuhu soovid järgmise X-i asetada!"
                     << endl
                     << "Näide: $ 2,3,2 sisestab X-i teisele mängulauale, kolmandasse ritta ning teise veergu.\n"
                     << endl;
@@ -58,24 +58,41 @@ int main() {
             cin >> käik;
         }
 
-        //siin on mängija käik tehtud
-        vali.print(cout);
-      
-        //cout << kontrolli(/*SIIA ON VAJA SAADA LAUD*/,"AI",3) << endl;
+        //Siin on mängija käik tehtud
+        
+        //vector<Laud> lauad = vali.getMLauad();
+        //vector<vector<string>> mangulaud = vali.getMLaud();
+        //OLEKS VAJA KÄTTE SAADA LAUD, mille saaks panna kontrolli() argumendiks.
 
-        //Kui laud sai surma siis annan teada, alles on laudade_arv - 1 lauda.
+        /*
+        if(kontrolli(lauad,"X",3) == true){ //Kontrollime, kas pärast viimast käiku on laud "surnud".
+            laudade_arv = laudade_arv - 1; SEDA VIST POLE VAJA
+            if(onLopp() == true){ //Kontrollime, kas kõik lauad on surnud.
+                break;
+            }
+        }
+        */
+        vali.print(cout);
+
 
         //AI teeb oma käigu.
 
-        // vali.print(cout);
-
-        //Kui laud sai surma siis annan teada, alles on laudade_arv - i lauda.
-
+        /*
+        if(kontrolli(lauad,"X",3) == true){ //Kontrollime, kas pärast viimast käiku on laud "surnud".
+            laudade_arv = laudade_arv - 1; SEDA VIST POLE VAJA
+            if(onLopp() == true){ //Kontrollime, kas kõik lauad on surnud.
+                break;
+            }
+        }
+        */
+        //vali.print(cout);
+        
 
 
     }
     
     //Kui mäng jõuab siia, siis kontrollin, kelle käik oli viimati ning annan teada, et tema kaotas.
+
     lopetus();
 
     //Mänguskoor ja uuesti mängimine tuleb lõppversioonis.
