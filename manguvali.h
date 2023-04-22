@@ -14,7 +14,7 @@ public:
 
     /// sisesta - Sisestab kindlale mängulauale käigu
     void sisesta(std::string sisestus, ///< - kasutaja sisestus
-    std::string kaija ///< - kes kaib
+                 std::string kaija ///< - kes kaib
     );
 
     /// print - Väljastab terve mänguvälja (kõik mängulauad, kus mäng pole veel läbi)

@@ -3,4 +3,4 @@ project(Projekt)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Projekt main.cpp laud.cpp laud.h manguvali.cpp manguvali.h)
+add_executable(Projekt main.cpp laud.cpp laud.h manguvali.cpp manguvali.h AI.cpp AI.h)

@@ -19,8 +19,7 @@ void Manguvali::sisesta(std::string sisestus, std::string kaija) {
     int i = stoi(osa);
     if (sisestus.find(eraldaja) != 0) {
         cout << "Sisestus pole korrektne";
-    }
-    else {
+    } else {
         int j = stoi(sisestus);
         m_lauad[lauaIdx].sisesta(i, j, kaija);
     }
@@ -28,7 +27,7 @@ void Manguvali::sisesta(std::string sisestus, std::string kaija) {
 
 void Manguvali::print(ostream &os) {
     int i = 1;
-    for (auto &laud: m_lauad){
+    for (auto &laud: m_lauad) {
         os << i << ". Laud\n";
         laud.print(os);
         os << '\n';

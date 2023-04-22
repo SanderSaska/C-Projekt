@@ -13,6 +13,7 @@ public:
     Laud();
 
     // hiljem --> explicit Laud(int n) ;
+
     /// print - Väljastab mängulaua
     void print(std::ostream &os ///< - kuhu väljastada
     );
@@ -21,10 +22,6 @@ public:
     void sisesta(int i, ///< - rida [i][]
                  int j, ///< - veerg [][j]
                  std::string kaija ///< - kes kaib
-    );
-
-    /// kontrolli - Kontrollib, kas antud käiku on võimalik käia
-    void kontrolli(std::string käik ///< - kahemõõtmeline koordinaat
     );
 };
 
