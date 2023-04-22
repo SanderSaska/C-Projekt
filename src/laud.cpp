@@ -1,4 +1,7 @@
-#include "laud.h"
+#include "../lib/laud.h"
+#include <algorithm>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -28,47 +31,52 @@ void Laud::print(ostream &os) {
 bool Laud::sisesta(int i, int j) {
     if (m_laud[i][j].compare("*") == 0) { // Kas antud koordinaatidel on tühi koht või mitte
         m_laud[i][j] = m_mangunupud[m_kaija]; // paneb nupu ära
-        m_kaija = 1-m_kaija; // vahetab käigukorda
+        m_kaija = 1 - m_kaija; // vahetab käigukorda
         return true;
-    }
-    else return false;
+    } else return false;
 }
 
-bool Laud::kontrolli(string kontrollija, int kordi) {
-    // Kas reas on 3 X-i
-    for (auto &rida:m_laud) {
-        if (std::count(rida.begin(), rida.end(),"X") == kordi){
-            return true;
-        }
-    }
-    // Kas veerus on 3 X-i
+bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
     int loendur{0};
-    for (int i = 0; i < m_suurus; ++i) {
-        for (int j = 0; j < m_suurus; ++j) {
-            if (m_laud[i][j].compare(kontrollija) == 0)
+    int n = laud.size();
+    // Kas reas on 3 X-i
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (laud[i][j] == kontrollija)
                 loendur++;
         }
-        if (loendur == kordi){
+        if (loendur == kordi) {
+            return true;
+        }
+        loendur = 0;
+    }
+    // Kas veerus on 3 X-i
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (laud[j][i] == kontrollija)
+                loendur++;
+        }
+        if (loendur == kordi) {
             return true;
         }
         loendur = 0;
     }
     // Kas peadiagonaalil on 3 X-i
-    for (int i = 0; i < m_suurus; ++i) {
-        if (m_laud[i][i].compare(kontrollija) == 0){
+    for (int i = 0; i < n; ++i) {
+        if (laud[i][i] == kontrollija) {
             loendur++;
         }
-        if (loendur == kordi){
+        if (loendur == kordi) {
             return true;
         }
         loendur = 0;
     }
     // Kas kõrvaldiagonaalil on 3 X-i
-    for (int i = 0; i < m_suurus; ++i) {
-        if (m_laud[i][m_suurus-1-i].compare(kontrollija) == 0){
+    for (int i = 0; i < n; ++i) {
+        if (laud[i][n - 1 - i] == kontrollija) {
             loendur++;
         }
-        if (loendur == kordi){
+        if (loendur == kordi) {
             return true;
         }
         loendur = 0;
@@ -79,16 +87,31 @@ bool Laud::kontrolli(string kontrollija, int kordi) {
 bool Laud::onLopp() {
     // Kui laual pole ühtegi tärni ehk tühja välja, on mäng lõppenud
     bool lopp{true};
-    for (auto &rida: m_laud){
-        if(std::find(rida.begin(), rida.end(), "*") != rida.end()) {
+    for (auto &rida: m_laud) {
+        if (find(rida.begin(), rida.end(), string("*")) != rida.end()) {
             lopp = false; // Järelikult on tühi koht
         }
     }
-    if (lopp){
+    if (lopp) {
         // Kui laual on kolm reas
-        kontrolli("X", 3);
-    }
-    else return false;
+        return kontrolli(m_laud, "X", 3);
+    } else return false;
+}
+
+int Laud::getMSuurus() const {
+    return m_suurus;
+}
+
+vector<vector<string>> &Laud::getMLaud() {
+    return m_laud;
+}
+
+int Laud::getMKaija() const {
+    return m_kaija;
+}
+
+vector<string> &Laud::getMMangunupud() {
+    return m_mangunupud;
 }
 
 

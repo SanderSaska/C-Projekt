@@ -7,10 +7,14 @@
 
 class Manguvali {
 private:
-    std::vector<Laud> m_lauad; // mängulauad
+    std::vector<class Laud> m_lauad; // mängulauad
     int m_laudadeArv; // mängulaudade arv
 public:
     explicit Manguvali(int laudadeArv);
+
+    std::vector<Laud> &getMLauad();
+
+    int getMLaudadeArv();
 
     /// Sisestab kindlale mängulauale käigu
     /// \param sisestus - kasutaja sisestus

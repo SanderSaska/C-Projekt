@@ -3,4 +3,6 @@ project(Projekt)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Projekt main.cpp laud.cpp laud.h manguvali.cpp manguvali.h AI.cpp AI.h)
+set(Projekt src/main.cpp)
+
+add_executable(Projekt src/main.cpp src/laud.cpp lib/laud.h src/manguvali.cpp lib/manguvali.h src/AI.cpp lib/AI.h)
