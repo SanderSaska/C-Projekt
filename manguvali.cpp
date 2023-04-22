@@ -17,6 +17,7 @@ bool Manguvali::sisesta(std::string sisestus) {
     osa = sisestus.substr(0, pos);
     sisestus.erase(0, pos);
     int i = stoi(osa);
+
     if (sisestus.find(eraldaja) != 0) {
         return false;
     } else {

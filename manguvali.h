@@ -15,8 +15,7 @@ public:
     /// Sisestab kindlale mängulauale käigu
     /// \param sisestus - kasutaja sisestus
     /// \return Tagastab tõeväärtuse, kas käik sai tehtud või mitte
-    bool sisesta(std::string sisestus,
-    );
+    bool sisesta(std::string sisestus);
 
     /// Väljastab terve mänguvälja (kõik mängulauad, kus mäng pole veel läbi)
     /// \param os - kuhu väljastada
