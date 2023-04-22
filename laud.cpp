@@ -15,10 +15,10 @@ void Laud::print(ostream &os) {
             else os << m_laud[i][j] << " | ";
         }
         os << '\n';
-        if (i < m_suurus - 1){
+        if (i < m_suurus - 1) {
             for (int j = 0; j < m_suurus; ++j) {
                 if (j == m_suurus - 1) os << string(1, '-');
-                else os << string(1+3, '-');
+                else os << string(1 + 3, '-');
             }
             os << '\n';
         }
@@ -26,5 +26,7 @@ void Laud::print(ostream &os) {
 }
 
 void Laud::sisesta(int i, int j, string kaija) {
-    m_laud[i][j] = kaija;
+    if (m_laud[i][j].compare("*") == 0) {
+        m_laud[i][j] = kaija;
+    }
 }
