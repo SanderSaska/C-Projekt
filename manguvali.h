@@ -7,17 +7,19 @@
 
 class Manguvali {
 private:
-    std::vector<Laud> m_lauad;
-    int m_laudadeArv;
+    std::vector<Laud> m_lauad; // mängulauad
+    int m_laudadeArv; // mängulaudade arv
 public:
     explicit Manguvali(int laudadeArv);
 
-    /// sisesta - Sisestab kindlale mängulauale käigu
-    void sisesta(std::string sisestus, ///< - kasutaja sisestus
-                 std::string kaija ///< - kes kaib
+    /// Sisestab kindlale mängulauale käigu
+    /// \param sisestus - kasutaja sisestus
+    /// \return Tagastab tõeväärtuse, kas käik sai tehtud või mitte
+    bool sisesta(std::string sisestus,
     );
 
-    /// print - Väljastab terve mänguvälja (kõik mängulauad, kus mäng pole veel läbi)
+    /// Väljastab terve mänguvälja (kõik mängulauad, kus mäng pole veel läbi)
+    /// \param os - kuhu väljastada
     void print(std::ostream &os);
 };
 

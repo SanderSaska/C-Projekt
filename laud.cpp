@@ -25,8 +25,70 @@ void Laud::print(ostream &os) {
     }
 }
 
-void Laud::sisesta(int i, int j, string kaija) {
-    if (m_laud[i][j].compare("*") == 0) {
-        m_laud[i][j] = kaija;
+bool Laud::sisesta(int i, int j) {
+    if (m_laud[i][j].compare("*") == 0) { // Kas antud koordinaatidel on tühi koht või mitte
+        m_laud[i][j] = m_mangunupud[m_kaija]; // paneb nupu ära
+        m_kaija = 1-m_kaija; // vahetab käigukorda
+        return true;
     }
+    else return false;
 }
+
+bool Laud::kontrolli(string kontrollija, int kordi) {
+    // Kas reas on 3 X-i
+    for (auto &rida:m_laud) {
+        if (std::count(rida.begin(), rida.end(),"X") == kordi){
+            return true;
+        }
+    }
+    // Kas veerus on 3 X-i
+    int loendur{0};
+    for (int i = 0; i < m_suurus; ++i) {
+        for (int j = 0; j < m_suurus; ++j) {
+            if (m_laud[i][j].compare(kontrollija) == 0)
+                loendur++;
+        }
+        if (loendur == kordi){
+            return true;
+        }
+        loendur = 0;
+    }
+    // Kas peadiagonaalil on 3 X-i
+    for (int i = 0; i < m_suurus; ++i) {
+        if (m_laud[i][i].compare(kontrollija) == 0){
+            loendur++;
+        }
+        if (loendur == kordi){
+            return true;
+        }
+        loendur = 0;
+    }
+    // Kas kõrvaldiagonaalil on 3 X-i
+    for (int i = 0; i < m_suurus; ++i) {
+        if (m_laud[i][m_suurus-1-i].compare(kontrollija) == 0){
+            loendur++;
+        }
+        if (loendur == kordi){
+            return true;
+        }
+        loendur = 0;
+    }
+    return false;
+}
+
+bool Laud::onLopp() {
+    // Kui laual pole ühtegi tärni ehk tühja välja, on mäng lõppenud
+    bool lopp{true};
+    for (auto &rida: m_laud){
+        if(std::find(rida.begin(), rida.end(), "*") != rida.end()) {
+            lopp = false; // Järelikult on tühi koht
+        }
+    }
+    if (lopp){
+        // Kui laual on kolm reas
+        kontrolli("X", 3);
+    }
+    else return false;
+}
+
+

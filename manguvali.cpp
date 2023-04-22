@@ -6,7 +6,7 @@ using namespace std;
 // Konstruktor
 Manguvali::Manguvali(int laudadeArv) : m_lauad(vector<Laud>(laudadeArv, Laud())), m_laudadeArv(laudadeArv) {}
 
-void Manguvali::sisesta(std::string sisestus, std::string kaija) {
+bool Manguvali::sisesta(std::string sisestus) {
     string eraldaja{","};
     auto pos = sisestus.find(eraldaja);
     string osa = sisestus.substr(0, pos);
@@ -18,10 +18,10 @@ void Manguvali::sisesta(std::string sisestus, std::string kaija) {
     sisestus.erase(0, pos);
     int i = stoi(osa);
     if (sisestus.find(eraldaja) != 0) {
-        cout << "Sisestus pole korrektne";
+        return false;
     } else {
         int j = stoi(sisestus);
-        m_lauad[lauaIdx].sisesta(i, j, kaija);
+        return m_lauad[lauaIdx].sisesta(i, j);
     }
 }
 
