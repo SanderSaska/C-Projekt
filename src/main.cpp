@@ -43,14 +43,13 @@ int main() {
 
     vali.print(cout);
 
-    std::string kaija = "mangija";
+    //std::string kaija = "mangija";
 
     while (laudade_arv > 0) { //Töötab, kuni lauad saavad otsa.
         std::string käik;
         cout << "Palun sisesta oma käik!" << endl;
         cin >> käik;
-        while (cin.fail() ==
-               false /*&& vali.sisesta(käik, kaija)==true*/) { //Kontrollib, kas käigu sisestus on korrektne, kui ei, siis küsib uue sisestuse
+        while (cin.fail() == false && vali.sisesta(käik)==true) { //Kontrollib, kas käigu sisestus on korrektne, kui ei, siis küsib uue sisestuse
             cout << "Error: palun sisesta oma käik korrektselt!" << endl;
             cout
                     << "Palun sisesta käik kujul 'laua number, rea number, veeru number', kuhu soovid järgmise X-i asetada!"
@@ -64,11 +63,12 @@ int main() {
 
         //siin on mängija käik tehtud
         vali.print(cout);
+      
 
         //Kui laud sai surma siis annan teada, alles on laudade_arv - 1 lauda.
 
         //AI teeb oma käigu.
-        vali.print(cout);
+       // vali.print(cout);
 
         //Kui laud sai surma siis annan teada, alles on laudade_arv - i lauda.
 
