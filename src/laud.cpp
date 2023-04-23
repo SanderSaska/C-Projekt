@@ -37,8 +37,8 @@ void Laud::print(ostream &os) {
 }
 
 bool Laud::sisesta(int i, int j) {
-    if (m_laud[i][j].compare("*") == 0) { // Kas antud koordinaatidel on tühi koht või mitte
-        m_laud[i][j] = "X"/*m_mangunupud[m_kaija]*/; // paneb nupu ära
+    if (m_laud[i][j] == "*") { // Kas antud koordinaatidel on tühi koht või mitte
+        m_laud[i][j] = "X"; // paneb nupu ära
         return true;
     } else {
         cout << "\nTeie sisestatud koht on laual juba hõivatud!" << endl;
@@ -49,7 +49,7 @@ bool Laud::sisesta(int i, int j) {
 bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
     int loendur{0};
     int n = laud.size();
-    // Kas reas on 3 X-i
+    // Kas reas on n X-i
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (laud[i][j] == kontrollija)
@@ -60,7 +60,7 @@ bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
         }
         loendur = 0;
     }
-    // Kas veerus on 3 X-i
+    // Kas veerus on n X-i
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (laud[j][i] == kontrollija)
@@ -71,7 +71,7 @@ bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
         }
         loendur = 0;
     }
-    // Kas peadiagonaalil on 3 X-i
+    // Kas peadiagonaalil on n X-i
     for (int i = 0; i < n; ++i) {
         if (laud[i][i] == kontrollija) {
             loendur++;
@@ -81,7 +81,7 @@ bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
         }
     }
     loendur = 0;
-    // Kas kõrvaldiagonaalil on 3 X-i
+    // Kas kõrvaldiagonaalil on n X-i
     for (int i = 0; i < n; ++i) {
         if (laud[i][n - 1 - i] == kontrollija) {
             loendur++;

@@ -42,7 +42,7 @@ void teeKaikAI(Manguvali &manguvali) {
             int rate = getRate(valitudLaud.getMLaud()); // Saame hinnangut tehtud käigule
             if (rate > parimRate) { // Kas hinnang on parem kui eelmine
                 parimadKaigud.clear(); // Kustutame eelnevad parimad käigud
-                parimRate = rate;
+                parimRate = rate; //
             }
             if (rate == parimRate) { // Kui hinnang on sama
                 kaik.insert(kaik.begin(), i); // Lisame käigule ka laua indeksi
@@ -54,7 +54,7 @@ void teeKaikAI(Manguvali &manguvali) {
     // Valime suvalise käigu
     int random = rand() % parimadKaigud.size();
     parimKaik = parimadKaigud[random];
-    manguvali.getMLauad()[parimKaik[0]].sisesta(parimKaik[1], parimKaik[2]);
+    manguvali.getMLauad()[parimKaik[0]].sisesta(parimKaik[1], parimKaik[2]); // Teeb lõpuks käigu lauale
     manguvali.vahetaKaijat();
 }
 
