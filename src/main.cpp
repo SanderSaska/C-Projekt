@@ -4,8 +4,6 @@
 
 using namespace std;
 
-const vector<string> m_mangijad = {"X", "O", "*"};
-
 int sissejuhatus() {//Sissejuhatus funktsioon mängu info andmiseks ja laudade arvu otsustamiseks.
     cout << "Notakto" << endl
          << "Mängu eesmärk on asetada 3x3 lauale X-e. Kui laual on kolm X-i järjest, "
@@ -30,12 +28,15 @@ int sissejuhatus() {//Sissejuhatus funktsioon mängu info andmiseks ja laudade a
     return laudade_arv;
 }
 
-void lopetus() {//Lõpetusfunktsioon
-    cout << "Viimane laud on 'surnud'. Mäng on lõppenud!" << endl;
+void lopetus(Manguvali vali) {//Lõpetusfunktsioon
+    vali.vahetaKaijat();
+    cout << "Viimane laud on 'surnud'. Mäng on lõppenud! Võitis " << vali.getMMangunupud()[vali.getMKaija()] << endl;
 }
 
 
 int main() {
+
+    std::srand(time(NULL));
 
     int laudade_arv = sissejuhatus();
 
@@ -47,9 +48,11 @@ int main() {
         std::string käik;
         cout << "Palun sisesta oma käik!" << endl;
         cin >> käik;
-        while (vali.sisesta(käik) == false) { //Kontrollib, kas käigu sisestus on korrektne, kui ei, siis küsib uue sisestuse
+        while (vali.sisesta(käik) ==
+               false) { //Kontrollib, kas käigu sisestus on korrektne, kui ei, siis küsib uue sisestuse
 
-            cout << "\nPalun sisesta käik kujul 'laua number, rea number, veeru number', kuhu soovid järgmise X-i asetada!"
+            cout
+                    << "\nPalun sisesta käik kujul 'laua number, rea number, veeru number', kuhu soovid järgmise X-i asetada!"
                     << endl
                     << "Näide: $ 2,3,2 sisestab X-i teisele mängulauale, kolmandasse ritta ning teise veergu.\n"
                     << endl;
@@ -59,41 +62,34 @@ int main() {
         }
 
         //Siin on mängija käik tehtud
-        
-        //vector<Laud> lauad = vali.getMLauad();
+
+        vector<Laud> lauad = vali.getMLauad();
         //vector<vector<string>> mangulaud = vali.getMLaud();
         //OLEKS VAJA KÄTTE SAADA LAUD, mille saaks panna kontrolli() argumendiks.
 
-        /*
-        if(kontrolli(lauad,"X",3) == true){ //Kontrollime, kas pärast viimast käiku on laud "surnud".
-            laudade_arv = laudade_arv - 1; SEDA VIST POLE VAJA
-            if(onLopp() == true){ //Kontrollime, kas kõik lauad on surnud.
-                break;
-            }
+        if (vali.onLopp()) { //Kontrollime, kas kõik lauad on surnud.
+            break;
         }
-        */
+
+        vali.print(cout);
+
+        cout << "AI teeb käigu\n";
+
+        //AI teeb oma käigu.
+        teeKaikAI(vali);
+
+        if (vali.onLopp()) { //Kontrollime, kas kõik lauad on surnud.
+            break;
+        }
+
         vali.print(cout);
 
 
-        //AI teeb oma käigu.
-
-        /*
-        if(kontrolli(lauad,"X",3) == true){ //Kontrollime, kas pärast viimast käiku on laud "surnud".
-            laudade_arv = laudade_arv - 1; SEDA VIST POLE VAJA
-            if(onLopp() == true){ //Kontrollime, kas kõik lauad on surnud.
-                break;
-            }
-        }
-        */
-        //vali.print(cout);
-        
-
-
     }
-    
+
     //Kui mäng jõuab siia, siis kontrollin, kelle käik oli viimati ning annan teada, et tema kaotas.
 
-    lopetus();
+    lopetus(vali);
 
     //Mänguskoor ja uuesti mängimine tuleb lõppversioonis.
 

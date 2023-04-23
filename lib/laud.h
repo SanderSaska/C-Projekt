@@ -10,8 +10,6 @@ class Laud {
 private:
     int m_suurus; // laua suurus (n x n)
     std::vector<std::vector<std::string>> m_laud; // mängulaud
-    int m_kaija = 0; // kelle kord on käia
-    std::vector<std::string> m_mangunupud = {"mängija", "AI"}; // mängijad
 
 public:
     Laud();
@@ -21,10 +19,6 @@ public:
     int getMSuurus() const;
 
     std::vector<std::vector<std::string>> &getMLaud();
-
-    int getMKaija() const;
-
-    std::vector<std::string> &getMMangunupud();
 
     /// Väljastab mängulaua
     /// \param os - kuhu väljastada

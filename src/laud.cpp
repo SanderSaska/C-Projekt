@@ -31,11 +31,11 @@ void Laud::print(ostream &os) {
 bool Laud::sisesta(int i, int j) {
     if (m_laud[i][j].compare("*") == 0) { // Kas antud koordinaatidel on tühi koht või mitte
         m_laud[i][j] = "X"/*m_mangunupud[m_kaija]*/; // paneb nupu ära
-        m_kaija = 1 - m_kaija; // vahetab käigukorda
         return true;
     } else {
         cout << "\nTeie sisestatud koht on laual juba hõivatud!" << endl;
-        return false;}
+        return false;
+    }
 }
 
 bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
@@ -67,6 +67,7 @@ bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
     for (int i = 0; i < n; ++i) {
         if (laud[i][i] == kontrollija) {
             loendur++;
+            continue;
         }
         if (loendur == kordi) {
             return true;
@@ -77,6 +78,7 @@ bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
     for (int i = 0; i < n; ++i) {
         if (laud[i][n - 1 - i] == kontrollija) {
             loendur++;
+            continue;
         }
         if (loendur == kordi) {
             return true;
@@ -87,17 +89,8 @@ bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
 }
 
 bool Laud::onLopp() {
-    // Kui laual pole ühtegi tärni ehk tühja välja, on mäng lõppenud
-    bool lopp{true};
-    for (auto &rida: m_laud) {
-        if (find(rida.begin(), rida.end(), string("*")) != rida.end()) {
-            lopp = false; // Järelikult on tühi koht
-        }
-    }
-    if (lopp) {
-        // Kui laual on kolm reas
-        return kontrolli(m_laud, "X", 3);
-    } else return false;
+    if (kontrolli(m_laud, "X", m_suurus)) return true; // Kui laual on kolm reas
+    else return false; // Järelikult pole keegi võitnud veel
 }
 
 int Laud::getMSuurus() const {
@@ -106,14 +99,6 @@ int Laud::getMSuurus() const {
 
 vector<vector<string>> &Laud::getMLaud() {
     return m_laud;
-}
-
-int Laud::getMKaija() const {
-    return m_kaija;
-}
-
-vector<string> &Laud::getMMangunupud() {
-    return m_mangunupud;
 }
 
 
