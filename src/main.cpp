@@ -3,6 +3,15 @@
 #include "../lib/manguvali.h"
 
 using namespace std;
+/***
+ * Programmeerimine keeles C++ (LTAT.03.025)
+ * 2022/2023 kevadsemester
+ *
+ *  Projekt - Notakto
+ *
+ * Autor: Rühm AJ: Sander Saska, Jaanis Soosaar
+ *
+ **/
 
 int sissejuhatus() {//Sissejuhatus funktsioon mängu info andmiseks ja laudade arvu otsustamiseks.
     cout << "Notakto" << endl

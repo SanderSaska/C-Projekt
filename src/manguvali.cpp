@@ -4,6 +4,15 @@
 #include <string>
 
 using namespace std;
+/***
+ * Programmeerimine keeles C++ (LTAT.03.025)
+ * 2022/2023 kevadsemester
+ *
+ *  Projekt - Notakto
+ *
+ * Autor: Rühm AJ- Sander Saska, Jaanis Soosaar
+ *
+ **/
 
 // Konstruktor
 Manguvali::Manguvali(int laudadeArv) : m_lauad(vector<Laud>(laudadeArv, Laud())), m_laudadeArv(laudadeArv) {}

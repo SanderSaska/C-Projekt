@@ -3,6 +3,16 @@
 
 #include "laud.h"
 #include "manguvali.h"
+/***
+ * Programmeerimine keeles C++ (LTAT.03.025)
+ * 2022/2023 kevadsemester
+ *
+ *  Projekt - Notakto
+ *
+ * Autor: Rühm AJ: Sander Saska, Jaanis Soosaar
+ *
+ **/
+
 
 /// Leiab kõik võimalikud käigud ühel laual
 /// \param laud - mängulaud, kust otsida

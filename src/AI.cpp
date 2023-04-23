@@ -5,8 +5,16 @@
 #include <vector>
 #include <ctime>
 
-
 using namespace std;
+/***
+ * Programmeerimine keeles C++ (LTAT.03.025)
+ * 2022/2023 kevadsemester
+ *
+ *  Projekt - Notakto
+ *
+ * Autor: Rühm AJ: Sander Saska, Jaanis Soosaar
+ *
+ **/
 
 void getKoikKaigud(Laud laud, vector<vector<int>> &koikKaigud) {
     vector<vector<string>> mangulaud = laud.getMLaud();

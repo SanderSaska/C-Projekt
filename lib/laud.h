@@ -5,6 +5,15 @@
 #include <string>
 #include <iostream>
 #include "AI.h"
+/***
+ * Programmeerimine keeles C++ (LTAT.03.025)
+ * 2022/2023 kevadsemester
+ *
+ *  Projekt - Notakto
+ *
+ * Autor: Rühm AJ: Sander Saska, Jaanis Soosaar
+ *
+ **/
 
 class Laud {
 private:

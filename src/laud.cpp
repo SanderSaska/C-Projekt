@@ -4,7 +4,15 @@
 #include <vector>
 
 using namespace std;
-
+/***
+ * Programmeerimine keeles C++ (LTAT.03.025)
+ * 2022/2023 kevadsemester
+ *
+ *  Projekt - Notakto
+ *
+ * Autor: Rühm AJ: Sander Saska, Jaanis Soosaar
+ *
+ **/
 
 Laud::Laud() : m_suurus(3), m_laud(vector<vector<string>>(3, vector<string>(3, "*"))) {}
 
