@@ -53,11 +53,11 @@ void teeKaikAI(Manguvali &manguvali) {
 int getRate(vector<vector<string>> &laud) {
     int rate = 2;
     if (kontrolli(laud, "X", 3)) { // Kui tehtud käiguga saab kolm ritta
-        rate = 3; // Siis on võit
+        rate = 1; // Siis on kaotus
         return rate;
     }
     if (kontrolli(laud, "X", 2)) { // Kui tehtud käiguga saab kaks ritta
-        rate = 1; // Siis vastane võidab
+        rate = 3; // Siis on vastane ühe käigu kaugusel kaotusest
         return rate;
     }
     return rate;

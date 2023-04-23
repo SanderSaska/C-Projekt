@@ -67,7 +67,6 @@ bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
     for (int i = 0; i < n; ++i) {
         if (laud[i][i] == kontrollija) {
             loendur++;
-            continue;
         }
         if (loendur == kordi) {
             return true;
