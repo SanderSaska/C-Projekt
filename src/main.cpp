@@ -62,17 +62,13 @@ int main() {
 
         //Siin on mängija käik tehtud
 
-        vector<Laud> lauad = vali.getMLauad();
-        //vector<vector<string>> mangulaud = vali.getMLaud();
-        //OLEKS VAJA KÄTTE SAADA LAUD, mille saaks panna kontrolli() argumendiks.
-
         if (vali.onLopp()) { //Kontrollime, kas kõik lauad on surnud.
             break;
         }
 
         vali.print(cout);
 
-        cout << "AI teeb käigu\n";
+        cout << "AI teeb käigu\n" << endl;
 
         //AI teeb oma käigu.
         teeKaikAI(vali);
