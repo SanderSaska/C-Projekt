@@ -72,18 +72,16 @@ bool kontrolli(vector<vector<string>> laud, string kontrollija, int kordi) {
         if (loendur == kordi) {
             return true;
         }
-        loendur = 0;
     }
+    loendur = 0;
     // Kas kõrvaldiagonaalil on 3 X-i
     for (int i = 0; i < n; ++i) {
         if (laud[i][n - 1 - i] == kontrollija) {
             loendur++;
-            continue;
         }
         if (loendur == kordi) {
             return true;
         }
-        loendur = 0;
     }
     return false;
 }
@@ -100,5 +98,3 @@ int Laud::getMSuurus() const {
 vector<vector<string>> &Laud::getMLaud() {
     return m_laud;
 }
-
-

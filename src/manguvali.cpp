@@ -63,7 +63,6 @@ bool Manguvali::onLopp() {
     for (int i = 0; i < m_laudadeArv; ++i) {
         Laud laud = m_lauad[i];
         if (laud.onLopp()) { // Kui mängulaual on mäng läbi
-            vahetaKaijat(); // Tahame saada käija, kes võitis, mitte järgmist.
             laud.print(cout);
             cout << "Laud on 'surnud'\n"
                  << "selle mängulaua võitis "
@@ -71,7 +70,6 @@ bool Manguvali::onLopp() {
                  << '\n';
             m_lauad.erase(m_lauad.begin() + i); // Eemaldame selle mänguväljalt
             m_laudadeArv--; // Vähendame mängulaudade arvu
-            vahetaKaijat(); // Paneme järgmise käija tagasi
         }
     }
     if (m_laudadeArv == 0) return true; // Kui rohkem pooleli olevaid mängulaude pole
