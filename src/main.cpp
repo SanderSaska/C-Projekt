@@ -39,6 +39,8 @@ int sissejuhatus() {//Sissejuhatus funktsioon mängu info andmiseks ja laudade a
 
 void lopetus(Manguvali vali) {//Lõpetusfunktsioon
     cout << "Viimane laud on 'surnud'. Mäng on lõppenud! Võitis " << vali.getMMangunupud()[vali.getMKaija()] << endl;
+    cout << "Vajuta klahvi, et väljuda\n";
+    system("pause > null");
 }
 
 
