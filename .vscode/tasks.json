@@ -1,27 +1,51 @@
 {
     "tasks": [
-        /* {
+        /*{
             "type": "shell",
-            "label": "Debug",
-            "command": "E:\\msys64\\mingw64\\bin\\g++.exe", // Vaheta enda g++ asukoht ära
+            "label": "Debug GUI",
+            "command": "C:\\Qt\\Tools\\mingw1120_64\\bin\\g++.exe", // Vaheta enda g++ asukoht ära
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${workspaceFolder}\\src\\*.cpp",
+                "${workspaceFolder}\\GUI\\src\\*.cpp",
                 "-o",
                 "${workspaceFolder}\\build\\debug\\NotaktoCLI.exe",
                 "-I",
-                "${workspaceFolder}\\include",
+                "${workspaceFolder}\\GUI\\lib",
                 "-I",
-                "${workspaceFolder}\\wxWidgets\\include",
+                "C:\\Qt\\6.5.0\\mingw_64\\include\\**",
                 "-I",
-                "${workspaceFolder}\\wxWidgets\\lib\\gcc_x64_dll\\mswud",
+                "C:\\Qt\\6.5.0\\mingw_64\\include\\QtCore\\",
+                "-I",
+                "C:\\Qt\\6.5.0\\mingw_64\\include\\QtWidgets\\",
                 "-L",
-                "${workspaceFolder}\\wxWidgets\\lib\\gcc_x64_dll",
+                "C:\\Qt\\6.5.0\\mingw_64\\lib\\**",
                 "-l",
-                "wxmsw32ud_core",
-                "-l",
-                "wxbase32ud"
+                "QtWidgets"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+        },*/
+        {
+            "type": "shell",
+            "label": "Release CLI",
+            "command": "C:\\Qt\\Tools\\mingw1120_64\\bin\\g++.exe", // Vaheta enda g++ asukoht ära
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}\\CLI\\src\\AI.cpp",
+                "${workspaceFolder}\\CLI\\src\\laud.cpp",
+                "${workspaceFolder}\\CLI\\src\\main.cpp",
+                "${workspaceFolder}\\CLI\\src\\manguvali.cpp",
+                "-o",
+                "${workspaceFolder}\\CLI\\build\\release\\Notakto.exe",
+                "-L",
+                "${workspaceFolder}\\CLI\\lib",
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -33,48 +57,19 @@
         },
         {
             "type": "shell",
-            "label": "Release",
-            "command": "E:\\msys64\\mingw64\\bin\\g++.exe", // Vaheta enda g++ asukoht ära
-            "args": [
-                "${workspaceFolder}\\src\\*.cpp",
-                "-o",
-                "${workspaceFolder}\\build\\release\\NotaktoGUI.exe",
-                "-I",
-                "${workspaceFolder}\\include",
-                "-I",
-                "${workspaceFolder}\\wxWidgets\\include",
-                "-I",
-                "${workspaceFolder}\\wxWidgets\\lib\\gcc_x64_dll\\mswu",
-                "-L",
-                "${workspaceFolder}\\wxWidgets\\lib\\gcc_x64_dll",
-                "-l",
-                "wxmsw32u_core",
-                "-l",
-                "wxbase32u"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": "build",
-        }, */
-        {
-            "type": "shell",
             "label": "Debug CLI",
-            "command": "E:\\msys64\\mingw64\\bin\\g++.exe", // Vaheta enda g++ asukoht ära
+            "command": "C:\\Qt\\Tools\\mingw1120_64\\bin\\g++.exe", // Vaheta enda g++ asukoht ära
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${workspaceFolder}\\src\\AI.cpp",
-                "${workspaceFolder}\\src\\laud.cpp",
-                "${workspaceFolder}\\src\\main.cpp",
-                "${workspaceFolder}\\src\\manguvali.cpp",
+                "${workspaceFolder}\\CLI\\src\\AI.cpp",
+                "${workspaceFolder}\\CLI\\src\\laud.cpp",
+                "${workspaceFolder}\\CLI\\src\\main.cpp",
+                "${workspaceFolder}\\CLI\\src\\manguvali.cpp",
                 "-o",
-                "${workspaceFolder}\\build\\debug\\NotaktoCLI.exe",
-                "-I",
-                "${workspaceFolder}\\lib",
+                "${workspaceFolder}\\CLI\\build\\debug\\NotaktoCLI.exe",
+                "-L",
+                "${workspaceFolder}\\CLI\\lib",
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
