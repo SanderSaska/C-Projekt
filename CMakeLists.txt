@@ -19,12 +19,12 @@ set(PROJECT_SOURCES
     GUI/lib/mainwindow.h
     GUI/src/mainwindow.ui
     GUI/src/main.cpp
-    #[[CLI/src/AI.cpp
+    CLI/src/AI.cpp
     CLI/lib/AI.h
     CLI/src/manguvali.cpp
     CLI/lib/manguvali.h
     CLI/src/laud.cpp
-    CLI/lib/laud.h]]
+    CLI/lib/laud.h
 )
 
 set(CLI_SOURCES
