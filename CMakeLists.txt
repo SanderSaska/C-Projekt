@@ -15,10 +15,13 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-    GUI/src/mainwindow.cpp
-    GUI/lib/mainwindow.h
-    GUI/src/mainwindow.ui
     GUI/src/main.cpp
+    GUI/lib/mainwindow.h
+    GUI/src/mainwindow.cpp
+    GUI/src/mainwindow.ui
+    GUI/lib/valikuteleht.h
+    GUI/src/valikuteleht.cpp
+    GUI/src/valikuteleht.ui
     CLI/src/AI.cpp
     CLI/lib/AI.h
     CLI/src/manguvali.cpp

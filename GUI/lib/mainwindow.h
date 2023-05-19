@@ -16,8 +16,7 @@ public:
     ~MainWindow();
 
 private slots:
-
-
+    void openValikuteleht();
     void on_pushButton_2_clicked();
 
 private:
