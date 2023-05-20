@@ -17,11 +17,11 @@ public:
     ~avalehtSisu();
 
 signals:
-    void edasiLauaValikule();
+    void edasiLauaValikuleSignaal();
 
 private slots:
     void valju();
-    void mangi();
+    void edasi();
 
 private:
     Ui::avalehtSisu *ui;

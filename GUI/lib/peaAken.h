@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "avalehtsisu.h"
 #include "lauavaliksisu.h"
+#include "mangulaudsisu.h"
 
 namespace Ui {
 class peaAken;
@@ -20,12 +21,13 @@ public:
 public slots:
     void avaleheSisu();
     void lauavalikuSisu();
-    void edasiLauaValikule();
+    void mangulauaSisu();
 
 private:
     Ui::peaAken *ui;
     avalehtSisu* avaleht;
-    lauaValikSisu* lauavalik;
+    lauavalikSisu* lauavalik;
+    mangulaudSisu* mangulaud;
 };
 
 #endif // PEAAKEN_H

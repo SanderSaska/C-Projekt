@@ -20,11 +20,14 @@ set(PROJECT_SOURCES
         GUI/src/peaAken.cpp
         GUI/src/peaAken.ui
         GUI/lib/avalehtsisu.h
-        GUI/src/avalehtSisu.cpp
-        GUI/src/avalehtSisu.ui
+        GUI/src/avalehtsisu.cpp
+        GUI/src/avalehtsisu.ui
         GUI/lib/lauavaliksisu.h
         GUI/src/lauavaliksisu.cpp
         GUI/src/lauavaliksisu.ui
+        GUI/lib/mangulaudsisu.h
+        GUI/src/mangulaudsisu.cpp
+        GUI/src/mangulaudsisu.ui
         CLI/src/AI.cpp
         CLI/lib/AI.h
         CLI/src/manguvali.cpp

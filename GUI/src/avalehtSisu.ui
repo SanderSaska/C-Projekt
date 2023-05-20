@@ -81,7 +81,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
          </font>
         </property>
         <property name="text">
-         <string>Mängi</string>
+         <string>Edasi</string>
         </property>
        </widget>
       </item>

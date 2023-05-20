@@ -5,26 +5,27 @@
 #include <QMainWindow>
 
 namespace Ui {
-class lauaValikSisu;
+class lauavalikSisu;
 }
 
-class lauaValikSisu : public QWidget
+class lauavalikSisu : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit lauaValikSisu(QWidget *parent = nullptr);
-    ~lauaValikSisu();
+    explicit lauavalikSisu(QWidget *parent = nullptr);
+    ~lauavalikSisu();
 
 signals:
-    void tagasiAvalehele();
+    void tagasiAvaleheleSignaal();
+    void edasiMangulaualeSignaal();
 
 private slots:
     void edasi();
     void tagasi();
 
 private:
-    Ui::lauaValikSisu *ui;
+    Ui::lauavalikSisu *ui;
 };
 
 #endif // LAUAVALIKSISU_H

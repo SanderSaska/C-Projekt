@@ -1,13 +1,15 @@
 #include "../lib/peaAken.h"
 #include "../lib/avalehtsisu.h"
 #include "../lib/lauavaliksisu.h"
+#include "../lib/mangulaudsisu.h"
 #include "ui_peaAken.h"
 
 peaAken::peaAken(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::peaAken),
     avaleht(nullptr),
-    lauavalik(nullptr)
+    lauavalik(nullptr),
+    mangulaud(nullptr)
 {
     ui->setupUi(this);
 
@@ -34,7 +36,7 @@ void peaAken::avaleheSisu()
     if (!avaleht)
     {
         avaleht = new avalehtSisu(this);
-        QObject::connect(avaleht, &avalehtSisu::edasiLauaValikule, this, &peaAken::edasiLauaValikule);
+        QObject::connect(avaleht, &avalehtSisu::edasiLauaValikuleSignaal, this, &peaAken::lauavalikuSisu);
     }
     setCentralWidget(avaleht);
 }
@@ -49,14 +51,23 @@ void peaAken::lauavalikuSisu()
 
     if (!lauavalik)
     {
-        lauavalik = new lauaValikSisu(this);
-        QObject::connect(lauavalik, &lauaValikSisu::tagasiAvalehele, this, &peaAken::avaleheSisu);
+        lauavalik = new lauavalikSisu(this);
+        QObject::connect(lauavalik, &lauavalikSisu::tagasiAvaleheleSignaal, this, &peaAken::avaleheSisu);
+        QObject::connect(lauavalik, &lauavalikSisu::edasiMangulaualeSignaal, this, &peaAken::mangulauaSisu);
     }
 
     setCentralWidget(lauavalik);
 }
 
-void peaAken::edasiLauaValikule()
-{
-    lauavalikuSisu();
+void peaAken::mangulauaSisu(){
+    if (lauavalik){
+        delete lauavalik;
+        lauavalik = nullptr;
+    }
+
+    if (!mangulaud){
+        mangulaud = new mangulaudSisu(this);
+    }
+
+    setCentralWidget(mangulaud);
 }

@@ -10,7 +10,7 @@ avalehtSisu::avalehtSisu(QWidget *parent) :
     // Väljumise nupp
     QObject::connect(ui->valjuNupp, &QPushButton::clicked, this, &avalehtSisu::valju);
     // Mängimise nupp
-    QObject::connect(ui->mangiNupp, &QPushButton::clicked, this, &avalehtSisu::mangi);
+    QObject::connect(ui->mangiNupp, &QPushButton::clicked, this, &avalehtSisu::edasi);
 }
 
 avalehtSisu::~avalehtSisu()
@@ -23,7 +23,7 @@ void avalehtSisu::valju()
     QApplication::quit();
 }
 
-void avalehtSisu::mangi()
+void avalehtSisu::edasi()
 {
-    emit edasiLauaValikule();
+    emit edasiLauaValikuleSignaal();
 }
