@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>peaAken</class>
+ <widget class="QMainWindow" name="peaAken">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>peaAken</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>640</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuValikud">
+    <property name="title">
+     <string>Valikud</string>
+    </property>
+    <addaction name="actionV_lju"/>
+   </widget>
+   <addaction name="menuValikud"/>
+  </widget>
+  <action name="actionV_lju">
+   <property name="text">
+    <string>Välju</string>
+   </property>
+  </action>
+  <action name="actionUus_m_ng">
+   <property name="text">
+    <string>Uus mäng</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
