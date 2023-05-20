@@ -22,12 +22,14 @@ public slots:
     void avaleheSisu();
     void lauavalikuSisu();
     void mangulauaSisu();
+    void mangulaudadeArv(int arv);
 
 private:
     Ui::peaAken *ui;
     avalehtSisu* avaleht;
     lauavalikSisu* lauavalik;
     mangulaudSisu* mangulaud;
+    int valitudLaudadeArv;
 };
 
 #endif // PEAAKEN_H

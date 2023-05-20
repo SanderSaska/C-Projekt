@@ -3,6 +3,7 @@
 #include "../lib/lauavaliksisu.h"
 #include "../lib/mangulaudsisu.h"
 #include "ui_peaAken.h"
+#include <QDebug>
 
 peaAken::peaAken(QWidget *parent) :
     QMainWindow(parent),
@@ -54,6 +55,8 @@ void peaAken::lauavalikuSisu()
         lauavalik = new lauavalikSisu(this);
         QObject::connect(lauavalik, &lauavalikSisu::tagasiAvaleheleSignaal, this, &peaAken::avaleheSisu);
         QObject::connect(lauavalik, &lauavalikSisu::edasiMangulaualeSignaal, this, &peaAken::mangulauaSisu);
+        QObject::connect(lauavalik, &lauavalikSisu::valitudLaudadeArvMuudetud, this, &peaAken::mangulaudadeArv);
+        mangulaudadeArv(0);
     }
 
     setCentralWidget(lauavalik);
@@ -70,4 +73,9 @@ void peaAken::mangulauaSisu(){
     }
 
     setCentralWidget(mangulaud);
+}
+
+void peaAken::mangulaudadeArv(int arv) {
+    valitudLaudadeArv = arv;
+    qDebug() << "Valitud arv: " << valitudLaudadeArv;
 }

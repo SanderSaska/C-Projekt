@@ -2,6 +2,7 @@
 #define MANGULAUD_H
 
 #include <QWidget>
+#include <QPushButton>
 
 namespace Ui {
 class mangulaudSisu;
@@ -15,8 +16,12 @@ public:
     explicit mangulaudSisu(QWidget *parent = nullptr);
     ~mangulaudSisu();
 
+private slots:
+    void kaiguTegemine();
+
 private:
     Ui::mangulaudSisu *ui;
+    QList<QPushButton*> nupud; // Mängulaual olevad võimalikud käigud
 };
 
 #endif // MANGULAUD_H

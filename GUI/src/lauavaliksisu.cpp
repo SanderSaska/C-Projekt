@@ -11,6 +11,8 @@ lauavalikSisu::lauavalikSisu(QWidget *parent) :
     QObject::connect(ui->edasiNupp, &QPushButton::clicked, this, &lauavalikSisu::edasi);
     // Tagasi nupp
     QObject::connect(ui->tagasiNupp, &QPushButton::clicked, this, &lauavalikSisu::tagasi);
+    // ComboBox
+    QObject::connect(ui->comboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &lauavalikSisu::valik);
 }
 
 lauavalikSisu::~lauavalikSisu()
@@ -26,4 +28,9 @@ void lauavalikSisu::tagasi()
 void lauavalikSisu::edasi()
 {
     emit edasiMangulaualeSignaal();
+}
+
+void lauavalikSisu::valik(int i) {
+    int valitudArv = i;
+    emit valitudLaudadeArvMuudetud(valitudArv);
 }

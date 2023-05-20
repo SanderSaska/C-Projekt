@@ -19,10 +19,12 @@ public:
 signals:
     void tagasiAvaleheleSignaal();
     void edasiMangulaualeSignaal();
+    void valitudLaudadeArvMuudetud(int i);
 
 private slots:
     void edasi();
     void tagasi();
+    void valik(int i);
 
 private:
     Ui::lauavalikSisu *ui;
