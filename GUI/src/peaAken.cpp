@@ -18,6 +18,7 @@ peaAken::peaAken(QWidget *parent) :
     avaleheSisu();
 
     QObject::connect(ui->actionV_lju, &QAction::triggered, this, &peaAken::close);
+    QObject::connect(ui->actionUus_m_ng, &QAction::triggered, this, &peaAken::avaleheSisu);
 }
 
 peaAken::~peaAken()
@@ -27,21 +28,26 @@ peaAken::~peaAken()
 
 void peaAken::avaleheSisu()
 {
-    if (lauavalik)
+    qDebug() << "Avaleht";
+    if (!mangulauad.empty()){
+        mangulauad.clear();
+    }
+    /*if (lauavalik)
     {
         delete lauavalik;
         lauavalik = nullptr;
-    }
+    }*/
 
     if (!avaleht)
     {
         avaleht = new avalehtSisu(this);
-        QObject::connect(avaleht, &avalehtSisu::edasiLauaValikuleSignaal, this, &peaAken::lauavalikuSisu);
+        QObject::connect(avaleht, &avalehtSisu::edasiLauaValikuleSignaal, this, &peaAken::mangulauaSisu);
+        mangulaudadeArv(0);
     }
     setCentralWidget(avaleht);
 }
 
-void peaAken::lauavalikuSisu()
+/*void peaAken::lauavalikuSisu()
 {
     if (avaleht)
     {
@@ -59,27 +65,27 @@ void peaAken::lauavalikuSisu()
     }
 
     setCentralWidget(lauavalik);
-}
+}*/
 
 void peaAken::mangulauaSisu(){
-    if (lauavalik){
+    if (avaleht){
+        delete avaleht;
+        avaleht = nullptr;
+    }
+    /*if (lauavalik){
         delete lauavalik;
         lauavalik = nullptr;
-    }
-
-    if (!mangulaud){
+    }*/
+    if (mangulauad.empty()){
         for (int i = 0; i < valitudLaudadeArv; ++i) {
-            std::shared_ptr<mangulaudSisu> laud = std::make_shared<mangulaudSisu>(this);
-            QObject::connect(laud.get(), &mangulaudSisu::liiguVasakuleLaualeSignaal, this, &peaAken::eelmineLaud);
-            QObject::connect(laud.get(), &mangulaudSisu::liiguParemaleLaualeSignaal, this, &peaAken::jargmineLaud);
-            mangulauad.append(std::move(laud));
+            mangulauad.append(QSharedPointer<mangulaudSisu>::create(this));
+            QObject::connect(mangulauad[i].get(), &mangulaudSisu::liiguVasakuleLaualeSignaal, this, &peaAken::eelmineLaud);
+            QObject::connect(mangulauad[i].get(), &mangulaudSisu::liiguParemaleLaualeSignaal, this, &peaAken::jargmineLaud);
             qDebug() << "Tehtud laud: " << i;
         }
         mitmesLaudIterator = mangulauad.begin();
-        mangulaud = mitmesLaudIterator->get();
     }
-
-    setCentralWidget(mangulaud);
+    setCentralWidget(mitmesLaudIterator->get());
 }
 
 void peaAken::mangulaudadeArv(int arv) {
@@ -93,8 +99,7 @@ void peaAken::jargmineLaud() {
         mitmesLaudIterator = mangulauad.begin();
     }
     qDebug() << "Järgmine laud: " << std::distance(mangulauad.begin(), mitmesLaudIterator);
-    mangulaud = mitmesLaudIterator->get();
-    setCentralWidget(mangulaud);
+    setCentralWidget(mitmesLaudIterator->get());
 }
 
 void peaAken::eelmineLaud() {
@@ -105,6 +110,5 @@ void peaAken::eelmineLaud() {
         --mitmesLaudIterator;
     }
     qDebug() << "Eelmine laud: " << std::distance(mangulauad.begin(), mitmesLaudIterator);
-    mangulaud = mitmesLaudIterator->get();
-    setCentralWidget(mangulaud);
+    setCentralWidget(mitmesLaudIterator->get());
 }
