@@ -23,13 +23,17 @@ public slots:
     void lauavalikuSisu();
     void mangulauaSisu();
     void mangulaudadeArv(int arv);
+    void eelmineLaud();
+    void jargmineLaud();
 
 private:
     Ui::peaAken *ui;
-    avalehtSisu* avaleht;
-    lauavalikSisu* lauavalik;
-    mangulaudSisu* mangulaud;
+    avalehtSisu* avaleht = nullptr;
+    lauavalikSisu* lauavalik = nullptr;
+    mangulaudSisu* mangulaud = nullptr;
     int valitudLaudadeArv;
+    QList<std::shared_ptr<mangulaudSisu>>::iterator mitmesLaudIterator;
+    QList<std::shared_ptr<mangulaudSisu>> mangulauad;
 };
 
 #endif // PEAAKEN_H

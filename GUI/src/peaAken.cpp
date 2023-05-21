@@ -7,11 +7,10 @@
 
 peaAken::peaAken(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::peaAken),
-    avaleht(nullptr),
-    lauavalik(nullptr),
-    mangulaud(nullptr)
+    ui(new Ui::peaAken)
 {
+    std::srand(time(NULL));
+
     ui->setupUi(this);
 
     setFixedSize(640, 480);
@@ -69,13 +68,43 @@ void peaAken::mangulauaSisu(){
     }
 
     if (!mangulaud){
-        mangulaud = new mangulaudSisu(this);
+        for (int i = 0; i < valitudLaudadeArv; ++i) {
+            std::shared_ptr<mangulaudSisu> laud = std::make_shared<mangulaudSisu>(this);
+            QObject::connect(laud.get(), &mangulaudSisu::liiguVasakuleLaualeSignaal, this, &peaAken::eelmineLaud);
+            QObject::connect(laud.get(), &mangulaudSisu::liiguParemaleLaualeSignaal, this, &peaAken::jargmineLaud);
+            mangulauad.append(std::move(laud));
+            qDebug() << "Tehtud laud: " << i;
+        }
+        mitmesLaudIterator = mangulauad.begin();
+        mangulaud = mitmesLaudIterator->get();
     }
 
     setCentralWidget(mangulaud);
 }
 
 void peaAken::mangulaudadeArv(int arv) {
-    valitudLaudadeArv = arv;
+    valitudLaudadeArv = arv + 1;
     qDebug() << "Valitud arv: " << valitudLaudadeArv;
+}
+
+void peaAken::jargmineLaud() {
+    ++mitmesLaudIterator;
+    if (mitmesLaudIterator == mangulauad.end()) {
+        mitmesLaudIterator = mangulauad.begin();
+    }
+    qDebug() << "Järgmine laud: " << std::distance(mangulauad.begin(), mitmesLaudIterator);
+    mangulaud = mitmesLaudIterator->get();
+    setCentralWidget(mangulaud);
+}
+
+void peaAken::eelmineLaud() {
+    if (mitmesLaudIterator == mangulauad.begin()) {
+        mitmesLaudIterator = mangulauad.end() - 1;
+    }
+    else {
+        --mitmesLaudIterator;
+    }
+    qDebug() << "Eelmine laud: " << std::distance(mangulauad.begin(), mitmesLaudIterator);
+    mangulaud = mitmesLaudIterator->get();
+    setCentralWidget(mangulaud);
 }
