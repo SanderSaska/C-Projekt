@@ -9,7 +9,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_PREFIX_PATH C:/Qt/6.5.0/mingw_64/lib/cmake/)
+set(CMAKE_PREFIX_PATH C:/Qt/6.5.0/mingw_64/lib/cmake/) # <-- Vaheta see enda Qt CMake asukohaks ära
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
